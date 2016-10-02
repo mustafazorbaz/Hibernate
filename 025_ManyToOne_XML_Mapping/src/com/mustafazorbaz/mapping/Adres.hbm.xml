@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping package="com.mustafazorbaz.mapping">
+
+	<class name="Adres" table="ADRES">
+	<meta attribute="class-descripton">ADRES SINIFININ DETAYLARI</meta>
+
+		<id name="adresId" column="ADRES_ID" type="long" >
+			<generator class="native" />
+		</id>
+
+		<property  name="cadde" column="ADRES_CADDE" generated="never" lazy="false" type="string" length="250" />
+		<property  name="sehir" column="ADRES_SEHIR" generated="never" lazy="false" type="string" length="50" />
+		<property  name="semt" column="ADRES_SEMT" generated="never" lazy="false" type="string" length="200" />
+		<property  name="postakodu" column="ADRES_POSTAKODU" generated="never" lazy="false" type="string" length="10" />
+
+	</class>
+</hibernate-mapping>    

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping package="com.mustafazorbaz.mapping">
+
+	<class name="Departman" table="DEPARTMAN">
+
+
+		<id name="departmanId" type="java.lang.Long" column="DEPARTMAN_ID">
+			<generator class="native" />
+		</id>
+
+		<property name="departmanAdi" column="BOLUM_ADI" />
+ 
+		<array name="calisanlar" table="CALISAN" inverse="true" cascade="all">
+			<key column="departman_id"/>			
+			<list-index column="liste_indeksi"/>
+			<one-to-many class="com.mustafazorbaz.mapping.Calisan" />
+		</array>
+		
+
+	</class>
+</hibernate-mapping>    

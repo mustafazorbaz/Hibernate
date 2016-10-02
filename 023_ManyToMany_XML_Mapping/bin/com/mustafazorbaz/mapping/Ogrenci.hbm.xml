@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping package="com.mustafazorbaz.mapping">
+
+	<class name="Ogrenci" table="OGRENCI">
+	<meta attribute="class-descripton">OGRENCI SINIFININ DETAYLARI</meta>
+		
+				<id name="ogrenciId" column="Ogrenci_ID">				
+					<generator class="native"/>		
+				</id>
+	
+				<property column="OGRENCI_ADI" name="ogrenciAdi" 
+							generated="never" lazy="false" 
+							length="100" not-null="true" type="string" />		
+			
+				
+				<set name="dersler" cascade="all" sort="unsorted" table="OGRENCI_DERS">		
+					<key column="OGRENCI_ID"/>				
+					<many-to-many class="com.mustafazorbaz.mapping.Ders"
+								  column="DERS_ID" unique="false"/>						
+				</set>
+		
+	</class>
+</hibernate-mapping>    

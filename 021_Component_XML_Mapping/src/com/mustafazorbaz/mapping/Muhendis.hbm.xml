@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.mustafazorbaz.mapping.Muhendis" table="muhendis"
+		catalog="CALISMAORTAMI">
+		<id name="muhendisId" type="java.lang.Integer">
+			<column name="MUHENDIS_ID" />
+			<generator class="identity" />
+		</id>
+		<property name="muhendisAdi" column="MUHENDIS_ADI" />
+		<property name="muhendisSoyadi" column="MUHENDIS_SOYADI" />
+		
+		<component name="adres" class="com.mustafazorbaz.mapping.Adres">
+			<property name="il" column="IL" generated="never" lazy="false"
+				type="string" length="250" />
+			<property name="ilce" column="ILCE" generated="never" lazy="false"
+				type="string" length="50" />
+			<property name="mahalle" column="MAHALLE" generated="never"
+				lazy="false" type="string" length="250" />
+			<property name="sokak" column="SOKAK" generated="never"
+				lazy="false" type="string" length="250" />
+		</component>
+
+	</class>
+
+</hibernate-mapping>

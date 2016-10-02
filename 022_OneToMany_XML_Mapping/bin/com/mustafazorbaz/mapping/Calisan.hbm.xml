@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping package="com.mustafazorbaz.map">
+
+	<class name="Calisan" table="CALISAN">
+		
+				<id name="calisanId" column="CALISAN_ID" type="java.lang.Long">				
+					<generator class="native"/>		
+				</id>
+	
+				<property name="calisanAdi" />		
+				<property name="calisanSoyadi" column="CALISAN_SOYADI"/>	
+				<property name="calisanDogumTarihi" column="DOGUM_TARIHI" type="date"/>
+				<property name="calisanTelefonNo" column="TELEFON_NO"/>		
+			
+				
+				<many-to-one name="departman"
+				class="com.mustafazorbaz.mapping.Departman"
+				fetch="select">
+					<column name="departman_id" not-null="true"/>			
+				</many-to-one>
+					
+	</class>
+</hibernate-mapping>    

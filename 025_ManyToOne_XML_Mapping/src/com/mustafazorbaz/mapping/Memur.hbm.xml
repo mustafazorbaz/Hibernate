@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping package="com.mustafazorbaz.mapping">
+
+	<class name="Memur" table="OGRENCI">
+	<meta attribute="class-descripton">MEMUR ETAYLARI</meta>
+		
+				<id name="memurId" column="MEMUR_ID">				
+					<generator class="native"/>		
+				</id>
+	
+				<property column="OGRENCI_ADI" name="memurAdi" 
+							generated="never" lazy="false" 
+							length="100" not-null="true" type="string" />		
+			
+				
+				<many-to-one name="memurAdres" column="MEMUR_ADRES" cascade="all" class="com.mustafazorbaz.mapping.Adres"  not-null="true"/>
+		
+	</class>
+</hibernate-mapping>    

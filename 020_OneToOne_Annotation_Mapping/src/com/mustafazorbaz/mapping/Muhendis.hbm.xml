@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.mustafazorbaz.mapping.Muhendis" table="muhendis"
+		catalog="CALISMAORTAMI">
+		<id name="muhendisId" type="java.lang.Integer">
+			<column name="MUHENDIS_ID" />
+			<generator class="identity" />
+		</id>
+		<property name="muhendisAdi" type="string">
+			<column name="MUHENDIS_ADI" length="50" not-null="true"
+				unique="true" />
+		</property>
+		<property name="muhendisSoyadi" type="string">
+			<column name="MUHENDIS_SOYADI" length="80" not-null="true"
+				unique="true" />
+		</property>
+		<one-to-one name="muhendisBilgisi"
+			class="com.mustafazorbaz.mapping.MuhendisBilgisi" cascade="save-update" />
+
+
+	</class>
+
+</hibernate-mapping>
